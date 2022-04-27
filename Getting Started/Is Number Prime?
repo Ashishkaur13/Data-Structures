@@ -1,0 +1,35 @@
+import java.util.*;
+  
+  public class Main{
+  
+  public static void main(String[] args) {
+      Scanner scn = new Scanner(System.in);
+  
+      int t = scn.nextInt();
+
+      for(int i = 1; i<= t; i++) {  
+
+          int n = scn.nextInt(); //number input
+
+             int fac = 2;
+             int count = 0;
+         
+         while(fac*fac <= n) {
+
+          if(n%fac == 0) {
+              count+=1;
+          }
+               fac+=1; 
+
+         } //while loop 
+
+         if(count == 0) {
+             System.out.println("prime");
+         }else {
+             System.out.println("not prime");
+         }
+
+      }  //t times 
+  
+   }
+  }
