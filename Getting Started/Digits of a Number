@@ -1,0 +1,29 @@
+import java.util.*;
+    
+    public class Main{
+    
+    public static void main(String[] args) {
+      Scanner scn = new Scanner(System.in);
+      int n= scn.nextInt();
+      // find total count 
+      int temp =n;   //needs to be done by local temp
+      int count = 0;
+      while(temp!= 0) {
+      int rem = n%10;
+      temp = temp/10; 
+      count+=1;
+      } 
+      // div = 10^(count-1)  for getting result in sequence
+      int div = 1;
+      for(int i=1;i<=count-1;i++){
+        div = div*10; 
+      }
+       // Final Loop
+       while (div!=0) {   
+       int front = n/div;
+       n= n%div;
+       System.out.println(front);
+       div = div/10;  // div reduce by 10
+       }
+     }
+    }
