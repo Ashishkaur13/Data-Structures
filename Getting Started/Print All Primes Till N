@@ -1,1 +1,29 @@
+import java.util.*;
 
+public class Main{
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int low = scn.nextInt();
+        int high = scn.nextInt();
+
+        int n = low;
+        while(n<=high) {    //outer while loop for range
+ 
+        int fac = 2;
+        int count = 0;
+
+        while(fac*fac<=n) {  //inner while loop
+        if(n%fac == 0) {
+          count+=1;
+        }
+        fac= fac + 1;  //update no. to be divided next before going back to loop  
+        }                    //inner while loop end
+
+        if(count == 0) {
+             System.out.println(n);
+        }
+              n+=1;  //update next number in range 
+
+        }                  // outer while loop for range end
+    }
+}
