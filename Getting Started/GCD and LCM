@@ -1,0 +1,31 @@
+import java.util.*;
+    
+    public class Main{
+    
+    public static void main(String[] args) {
+      Scanner scn = new Scanner(System.in);
+      int a = scn.nextInt();
+      int b = scn.nextInt();
+      int v = 1;
+      if(a<b) {
+      } 
+      else {
+        int temp = a;
+        a = b;
+        b= temp;
+      }
+       // GCD 
+       for(int i = a;i>=1;i--) {
+       if(a%i == 0 && b%i ==0) {
+          System.out.println(i);
+         v = i; // store value of gcd to find lcm at last
+         break;
+       }
+       }
+        // LCM 
+       // formula for lcm = a*b/GCD
+       int lcm = a*b/v;
+       System.out.println(lcm);
+
+     }
+    }
