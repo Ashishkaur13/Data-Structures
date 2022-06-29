@@ -1,0 +1,53 @@
+import java.util.*;
+  
+  public class Main{
+  
+  public static void main(String[] args) {
+      Scanner scn = new Scanner(System.in);
+      int n = scn.nextInt();
+      int b1 = scn.nextInt();
+     int  b2= scn.nextInt();
+     int res3 = getValue(n,b1,b2);   // res3 me getValue se return hui res2 ki value milegi
+     System.out.println(res3);
+   }   
+
+    public static int getValue(int n, int b1, int b2) {
+      int res1 = getValueIndecimal(n,b1);
+      int res2 = getValueInBase(res1,b2);    //Res1 ab hmara updated number hai
+      return res2;
+    }
+
+          // Convert any base to decimal 
+   public static int getValueIndecimal(int n, int b1){
+      int res = 0;
+      int multiplier = 1;
+
+      while (n!=0) {
+          int divisor = n/10;
+          int rem = n%10;
+
+          res = res + rem*multiplier;
+          multiplier*=b1;
+
+          n = n/10;   // n = divisor update
+      }
+      return res;
+   }
+          // Convert decimal to any base 
+   public static int getValueInBase(int n, int b2){
+       int res = 0;
+       int multiplier = 1;
+
+        while(n!=0) {
+            int divisor = n/b2;
+            int rem = n%b2;
+
+           res = res + rem*multiplier;
+           multiplier*=10;
+
+            n = n/b2;      // or (n = divisor) same thing => Updating n 
+        }
+        return res;
+   }
+
+  }
