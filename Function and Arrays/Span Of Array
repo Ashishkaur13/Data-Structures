@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) throws Exception {
+    Scanner scn = new Scanner(System.in);
+    int n = scn.nextInt();     //count of total elements
+    int arr[] = new int[n];
+    for(int i = 0;i<arr.length;i++) {
+        arr[i] = scn.nextInt();
+    }
+    
+    int max = arr[0];  //assume first element is maximum already
+    int min = arr[0];  //assume first element is minimum already
+
+    for(int i = 1;i<arr.length;i++) { //i = 1 because we already have arr[0] with us so start with 1st index
+        if(arr[i] > max)  {   //if any element found bigger than it replace 
+        max = arr[i];
+        }
+
+        // another condition check within for loop 
+        if(arr[i]< min) {
+            min = arr[i];
+        }
+    }
+
+    int span = max - min;
+    System.out.println(span);
+ }
+
+}
