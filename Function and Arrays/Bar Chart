@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) throws Exception {
+    Scanner scn = new Scanner(System.in);
+    int n = scn.nextInt();
+    int array[] = new int[n];
+    for(int i = 0;i<array.length;i++) {
+        array[i] = scn.nextInt();
+    }
+        //Finding out maximum
+     int max = array[0];
+     for(int i = 1;i<array.length;i++) {
+         if(array[i]> max) {
+             max = array[i];
+         }
+     }
+     
+     //Bar Chart Solution
+     for(int floor = max;floor>=1;floor--) {
+
+         for(int i = 0; i<array.length; i++) {
+             if(array[i] >= floor) {
+               System.out.print("*\t");
+             }
+             else {
+                 System.out.print("\t");
+             }
+         }                    //First line iterartion k baad we need next line iteration 
+         System.out.println();    //Inner for loop se bahar nikal kar next line
+     }
+ }
+
+}
