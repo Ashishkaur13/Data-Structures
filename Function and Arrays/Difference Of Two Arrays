@@ -1,0 +1,62 @@
+import java.io.*;
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) throws Exception {
+    // write your code here
+    Scanner scn = new Scanner(System.in);
+    //Array 1 
+    int n1 = scn.nextInt();
+    int[] a1 = new int[n1];
+    for(int i = 0; i<a1.length; i++) {
+        a1[i] = scn.nextInt();
+    }
+    //Array 2
+    int n2 = scn.nextInt();
+    int[] a2 = new int[n2];
+    for(int j = 0; j<a2.length; j++) {
+        a2[j] = scn.nextInt();
+    }
+
+    //Difference Array 
+    int[] difference = new int[n2];
+    int carry = 0;
+    int i = a1.length-1;
+    int j = a2.length-1;
+    int k = difference.length-1;
+
+    while(k>=0) {
+     
+     int digit =0;
+     int a1val = i >= 0? a1[i] : 0; //if no number exist in a1 use 0s
+
+     if(a2[j] + carry >= a1val) {
+      digit = a2[j] + carry - a1val;
+      carry=0;
+     } else {
+      digit = a2[j] + 10 + carry - a1val;
+      carry = -1; //For next iteration -1 hojaayega 
+     }
+
+     difference[k] = digit;
+        i--;j--;k--;
+    }
+    
+    //we don't want succeeding zeros eg 00102 should be printed as 102 so 
+    int index = 0;
+    while (index < difference.length ) {
+        if(difference[index] == 0) {  // if encounters 0 in front increase index
+            index++;
+        }
+        else {
+            break;    //the moment non zero value starts break and print using next while loop
+        }
+    }
+    while(index< difference.length) {
+        System.out.println(difference[index]);
+        index++;
+    }
+ }
+
+}
