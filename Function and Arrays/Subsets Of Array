@@ -1,1 +1,41 @@
+import java.io.*;
+import java.util.*;
 
+public class Main{
+
+public static void main(String[] args) throws Exception {
+ 
+ Scanner scn = new Scanner(System.in);
+ int n = scn.nextInt();
+
+ int[] a = new int[n];
+ for(int i=0;i<a.length;i++) {
+   a[i] = scn.nextInt();
+ }
+//Step 1 : know how many iterations we need : For total subset = 2 to the power of array.length
+int limit = (int)Math.pow(2,a.length);
+
+for(int i = 0; i<limit ; i++) {
+  //Step 2 : Convert to binary to use 0s and 1s knowing what to print and what not to.
+  int temp = i;
+
+  String set = "";
+  //Step 3 : Reverse j loop so as to get correct binary digits and find rem and temp accordingly
+  for(int j = a.length-1 ; j>=0 ; j--) {
+    int rem = temp%2;
+    temp = temp/2;
+
+    //Step  : Check for printing condition
+    if(rem == 0 ) {
+      set = "-\t" + set;
+    } else {
+      set = a[j] + "\t" + set;
+    }
+  } 
+  System.out.println(set);
+
+}   
+ 
+}
+
+}
