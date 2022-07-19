@@ -1,0 +1,27 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        int[][] a = new int[n][n];
+        for(int i=0;i<a.length;i++) {
+            for(int j=0;j<a[0].length;j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }   
+      // Traversing we see j-i = gap in each diagonal and gap is also increasing in each row so 
+
+      for(int gap = 0;gap<a.length;gap++) {
+              //now for printing i and j-i elements 
+          for(int i=0,j=gap + i;j<a[0].length;i++,j++) {
+              System.out.println(a[i][j]);
+          }
+      } 
+
+    }
+
+}
