@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        int[][] a = new int[n][n];
+        for(int i=0;i<a.length;i++) {
+            for(int j=0;j<a[0].length;j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+    //Check row wise minimum 
+
+    for(int i =0;i<a.length;i++) {
+        int svj = 0;
+        for(int j=0;j<a[0].length;j++) {
+        if(a[i][j] < a[i][svj]) { // agar koi min val mile toh put in svj
+          svj = j;
+        }
+        }
+
+    //Check recieved smallest val => for column wise max
+
+    boolean flag = true;
+    for(int k=0;k<a.length;k++) {
+        if(a[k][svj] > a[i][svj]) {
+            flag = false;
+            break;
+        }
+    }
+
+    if(flag == true) {
+        System.out.println(a[i][svj]);
+        return;
+    }
+    }
+
+    System.out.println("Invalid input");
+
+    }
+
+}
