@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int n = sc.nextInt();
+
+        int res = power(x,n);
+        System.out.println(res);
+    }
+
+    public static int power(int x, int n){
+
+        //base case 
+        if(n == 0) {
+            return 1;
+        }
+        //x^n = x^n/2 + x^n/2
+
+        int xpnb2 = power(x,n/2);
+        int xn = xpnb2*xpnb2;
+
+        if(n%2 != 0) {
+            xn = x*xn;       //Odd walo me extra x needs to be multiplied
+        }
+
+        return xn;
+    }
+
+}
