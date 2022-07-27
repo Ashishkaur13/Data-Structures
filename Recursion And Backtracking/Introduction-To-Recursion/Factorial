@@ -12,14 +12,14 @@ public class Main {
     }
 
     public static int factorial(int n){
-        //base case 
-        if(n == 1) {
-            return 1;
-        }
-        int fac = factorial(n-1);
-        int f = fac*n;
+      //base case 
+      if(n == 1) {
+          return 1 ;
+      }
 
-        return f;
+        int fc = factorial(n-1); // will recieve returned value 
+        int fac = n*fc;          //will multiply returned values with n
+        return fac;
     }
 
 }
