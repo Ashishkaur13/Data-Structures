@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        int srcTower = sc.nextInt();   //a
+        int destTower = sc.nextInt();  //b
+        int auxTower = sc.nextInt();   //c
+
+        toh(n,srcTower,destTower,auxTower);
+    }
+
+    public static void toh(int n, int srcTower, int destTower, int auxTower){
+        //base case 
+        if(n == 0) {
+            return;
+        }
+        toh(n-1,srcTower,auxTower,destTower);   //b ka use krke c me daaldo 
+
+        System.out.println(n + "[" + srcTower + " -> " + destTower + "]");  // mid work humne kardia => 3rd disk ko b me put 
+
+        toh(n-1,auxTower,destTower,srcTower);   //a ka use krke b me daaldo
+    }
+
+}
