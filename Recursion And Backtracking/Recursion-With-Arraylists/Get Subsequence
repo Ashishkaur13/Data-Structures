@@ -1,1 +1,39 @@
+import java.io.*;
+import java.util.*;
 
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+    Scanner sc = new Scanner(System.in);
+    String str = sc.next();
+    ArrayList<String> result = gss(str);
+    System.out.println(result);
+    }
+    //bc => --,-c,-b,bc
+    //abc => ---,--c,--b,-bc, a--,a-c,a-b,abc
+
+    public static ArrayList<String> gss(String str) {
+        //base case
+        if(str.length() == 0) {
+            ArrayList<String> baseres = new ArrayList<>();
+            baseres.add("");    //khaali subsequence return karenge new Arraylist me bhar kar
+            return baseres;
+        }
+        
+        char ch = str.charAt(0);  //ch = a
+        String ros = str.substring(1);  //ros = "bc"
+
+        ArrayList<String> rres = gss(ros);  //recursion call
+
+        ArrayList<String> myres = new ArrayList<>();  //new Arraylist to meet faith and expectations
+
+        for(String val: rres){
+            myres.add("" + val);
+        } 
+        for(String val: rres){
+            myres.add(ch + val);
+        } 
+        return myres;
+    }
+
+}
