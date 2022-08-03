@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+
+        ArrayList<String> words = getKPC(str);
+        System.out.println(words);
+    }
+    //Global array bnaane k liye we mark it as static
+    
+    static String[] codes = {".;","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
+
+    //678 => Expectation
+    //78 => Faith
+    public static ArrayList<String> getKPC(String str) {   //str = 678
+
+        //base case 
+        if(str.length() == 0) {
+            ArrayList<String> baseres = new ArrayList<String>();
+            baseres.add("");
+            return baseres;
+        }
+        
+        char ch = str.charAt(0);  //6
+        String ros = str.substring(1);  //78
+
+        ArrayList<String> rres = getKPC(ros);  // will give result of 78
+        ArrayList<String> mres = new ArrayList<>();   // arraylist for storing my result
+
+        //6 par pqrs hai so loop for all individual p , q , r , s
+        String codeforch = codes[ch - '0'];     //ch = 6 => ASCII = 54 so ----- ( 54 - 48 = 6 )  '0 = 48'
+        //for loop for p , q , r , s
+        for(int i = 0;i<codeforch.length();i++){
+            char chcode = codeforch.charAt(i);  // ek baar p aayega fir q fir r and s (in case of 6)
+            for(String val : rres){
+                mres.add(chcode + val);  //Will join the reult  p k sath 78 ka result then q k sath and so on...
+            }
+        } 
+        return mres;
+    }
+
+}
