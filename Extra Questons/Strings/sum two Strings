@@ -1,0 +1,14 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        String num1 = scn.next();
+        String num2 = scn.next();
+        
+        int sum = Integer.parseInt(num1) + Integer.parseInt(num2) ;
+        System.out.println(sum);
+    }
+}
