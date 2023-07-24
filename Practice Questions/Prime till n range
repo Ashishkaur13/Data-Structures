@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int low = scn.nextInt();
+        int high = scn.nextInt();
+        
+        int n = low;  //low ki value n me daaldo since low should not be altered.
+        
+        while(n<=high) {
+            
+            //Prime logic 
+            int fac = 2;
+            int count = 0;
+            
+            while(fac*fac <= n) {
+                if(n%fac == 0) {
+                    count++;
+                }
+                fac = fac + 1;
+            }
+            if(count == 0) {
+                System.out.println(n);
+            } 
+            n++;
+        }
+    }
+}
